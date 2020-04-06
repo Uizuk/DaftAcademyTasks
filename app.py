@@ -7,6 +7,11 @@ app = FastAPI()
 def hello_world():
     return {"message": "Hello World during the coronavirus pandemic!"}
 
+@app.route("/method", methods=["GET", "POST", "PUT", "DELETE"])
+def get_method(req: Request):
+    return {"method": req.method}
+
+
 class HelloNameResponse(BaseModel):
     message: str 
 
